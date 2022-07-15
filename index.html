@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock_Paper_Scissors</title>
+    </head>
+    <body>
+        <script>
+
+            
+             //return results with if, else if, and else statement: rock beats scissors loses to paper, paper beats rock loses to scissors, scissors beats paper loses to rock
+            function playRound(playerSelection,computerSelection){
+            
+                if (playerSelection == "rock" && computerSelection == "scissors") {
+                    return "You Win, Rock beats Scissors!"
+                } else if (playerSelection == "rock" && computerSelection == "paper") {
+                    return "You Lose, Paper beats Rock!"
+                } else if (playerSelection == "scissors" && computerSelection == "paper") {
+                    return "You Win, Scissors beats Paper!"
+                } else if (playerSelection == "scissors" && computerSelection == "rock") {
+                    return "You Lose, Rock beats Scissors!"
+                } else if (playerSelection == "paper" && computerSelection == "rock") {
+                    return "You Win, Paper beats Rock!"
+                } else if (playerSelection == "paper" && computerSelection == "scissors") {
+                    return "You Lose, Scissors beats Paper!"
+                } else if (playerSelection == computerSelection) {
+                    return "You Tied!"}
+                
+                
+            }
+                function finalScore() {
+                if (playerSum(a,b,c) < computerSum(x,y,z)) {
+                    return "Sorry, the Machine won this time"
+                } else if (playerSum(playerPt) > computerSum(computerPt)) {
+                    return "Woah, You managed to beat the Machine! Congrats!!"
+                } else if (playerSum() == computerSum()) {
+                    return "Huh, You managed to tie. I didn't think that result was possible... but if you're seeing this message, I guess it was."
+                } }
+                function playerSum(a,b,c) {
+                return parseInt(a + b + c) 
+            }
+                function computerSum(a,b,c) {
+                return parseInt(x + y + z) 
+            }
+                  
+    
+
+            const array = ["rock", "paper", "scissors"]
+            //function that returns random string from three possible selections
+            function computerPlay(string) {
+                let value = array[Math.floor(Math.random()*array.length)];
+                return value }
+
+            
+               
+            
+            //add points of each round for computer and player then use boolean to see which is greater
+            
+            //input to run round
+            
+            //function to play round 5 times
+            // keep score then report winner or loser at end
+            /* the loop is to initate the game 5 times before declaring a winner
+                the game function should intiate a single round
+                for each round, add pts to winner count then after 5 rounds, sum the total points to declare winner
+               */
+            function game() {
+                for (let round = 0; round <5; round++ ) {
+                    const playerSelection = prompt("Choose your weapon! Rock, Paper, or Scissors?!").toLowerCase() ;
+                    const computerSelection = computerPlay();   
+                    console.log(playRound(playerSelection,computerSelection))
+                } 
+            }
+            /* need to enter final score to define at playRound level but also make it activiate after "for" finishes */
+        </script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <script>
+           /*Plan :
+           -Input: three choices, case insensitive
+           -Output: outcome of game between player and computer
+           -How to Get from Input to Output: function(s) that take data, evaluates which has win condition, tell user.
+           repeat five times, then announce the final winner
+           -Remeber to check each step before moving on... Patience
+           */
+
+          /*Pseudo code :
+            Create a function that accepts two parameters(one from player, one from computer), then tells which is the winner
+            Create function or loop that counts the winner of each round
+            Create function loops the rounds and and takes the sum of winner count and declares an overall winner
+          */
+
+          function playRound(playerSelection, computerSelection) {
+            
+            if (playerSelection == "rock" && computerSelection == "scissors") {
+                    playerPt++;
+                    return "You Win, Rock beats Scissors!"
+                } else if (playerSelection == "rock" && computerSelection == "paper") {
+                    computerPt++;
+                    return "You Lose, Paper beats Rock!"
+                } else if (playerSelection == "scissors" && computerSelection == "paper") {
+                    playerPt++;
+                    return "You Win, Scissors beat Paper!"
+                } else if (playerSelection == "scissors" && computerSelection == "rock") {
+                    computerPt++;
+                    return "You Lose, Rock beats Scissors!"
+                } else if (playerSelection == "paper" && computerSelection == "rock") {
+                    playerPt++;
+                    return "You Win, Paper beats Rock!"
+                } else if (playerSelection == "paper" && computerSelection == "scissors") {
+                    computerPt++;
+                    return "You Lose, Scissors beat Paper!"
+                } else if (playerSelection == computerSelection) {
+                    return "You Tied!"}
+                    }
+
+          
+          function computerPlay() {
+            const array = ["rock", "paper", "scissors", "scissors", "rock", "paper"]
+            let randomValue = array[Math.floor(Math.random()*array.length)]
+            return randomValue;
+          }
+          let computerPt = parseInt(0);
+          let playerPt = parseInt(0);
+
+          function game() {
+            let sum = parseInt(0)
+            for (let i = 0; i < 5; i++) {
+                const playerSelection = prompt("Please Select Your Weapon: Rock, Paper, or Scissors?").toLowerCase();
+                const computerSelection = computerPlay();
+                console.log(playRound(playerSelection, computerSelection))
+                }
+            if (playerPt > computerPt) {
+                return "Congrats, You Won!"
+            }else if (playerPt < computerPt){
+                return "Sorry, Better luck next time!"
+            }else if (playerPt == computerPt) {
+                return "Looks like a Tie!"
+            }
+
+            }
+            /* ended up using partial TOP voted solution to figure out
+            placement of player and computer Pt
+            Note that earlier mistake came from placing variables within function 
+            makeing them local and undefined for the game() function
+            Now know that can define a variable outside of function 
+            and refer to it by not redifing with let/const within the function
+            thanks to "" for the guidance */
+
+        </script>
+    </body>
+</html>
